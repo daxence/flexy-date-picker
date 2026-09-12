@@ -1,5 +1,5 @@
 {
-  "name": "flexy-date-picker",
+  "name": "@daxence/flexy-date-picker",
   "version": "1.3.3",
   "description": "A fully customizable React date picker with single & range selection, injectable CSS theming, tooltips, and full event support.",
   "type": "module",
@@ -32,7 +32,11 @@
     "prepublishOnly": "npm run build"
   },
   "publishConfig": {
-    "registry": "http://localhost:4873/"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "peerDependencies": {
     "dayjs": ">=1.11.0",
@@ -105,7 +109,7 @@
     "css-variables",
     "dayjs"
   ],
-  "author": "",
+  "author": "Aymane D. <https://github.com/daxence>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/daxence/flexy-date-picker/issues"

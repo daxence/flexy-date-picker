@@ -1,16 +1,20 @@
 # flexy-date-picker
 
-[![npm version](https://img.shields.io/npm/v/flexy-date-picker.svg)](https://www.npmjs.com/package/flexy-date-picker)
+[![CI](https://github.com/daxence/flexy-date-picker/actions/workflows/ci.yml/badge.svg)](https://github.com/daxence/flexy-date-picker/actions/workflows/ci.yml)
+[![Release](https://github.com/daxence/flexy-date-picker/actions/workflows/release.yml/badge.svg)](https://github.com/daxence/flexy-date-picker/actions/workflows/release.yml)
+[![npm version](https://img.shields.io/npm/v/%40daxence%2Fflexy-date-picker.svg)](https://www.npmjs.com/package/@daxence/flexy-date-picker)
+[![npm downloads](https://img.shields.io/npm/dm/%40daxence%2Fflexy-date-picker.svg)](https://www.npmjs.com/package/@daxence/flexy-date-picker)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![React](https://img.shields.io/badge/react-%3E%3D18-61dafb.svg)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6.svg)](https://www.typescriptlang.org/)
 [![Test coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](#quality--testing)
-[![Tests](https://img.shields.io/badge/tests-101%20passing-brightgreen.svg)](#quality--testing)
-[![Bundle size](https://img.shields.io/badge/gzip-~35kB-blue.svg)](#quality--testing)
+[![Conventional Commits](https://img.shields.io/badge/commits-conventional-fe5196.svg)](https://www.conventionalcommits.org)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 
 A **fully customizable** React date & time picker with single / range selection, an optional time picker, injectable CSS theming, tooltips, and a complete event API. Built with TypeScript, Day.js, and zero hard-coded visual opinions — every color, radius, and slot can be overridden.
 
 ![Desktop calendar](./screenshots/desktop-calendar.png)
+
 
 ## Table of contents
 
@@ -59,11 +63,11 @@ A **fully customizable** React date & time picker with single / range selection,
 ## Installation
 
 ```bash
-npm install flexy-date-picker dayjs
+npm install @daxence/flexy-date-picker dayjs
 ```
 
 ```bash
-pnpm add flexy-date-picker dayjs
+pnpm add @daxence/flexy-date-picker dayjs
 ```
 
 `dayjs` is a peer dependency and must be installed alongside the package. `react` and `react-dom` (≥ 18) are also required as peer dependencies.
@@ -71,8 +75,8 @@ pnpm add flexy-date-picker dayjs
 ## Quick start
 
 ```tsx
-import { DatePicker } from 'flexy-date-picker';
-import 'flexy-date-picker/styles'; // import the CSS once, anywhere in your app
+import { DatePicker } from '@daxence/flexy-date-picker';
+import '@daxence/flexy-date-picker/styles'; // import the CSS once, anywhere in your app
 
 function App() {
   return <DatePicker mode="single" onDateChange={(date) => console.log(date)} />;
@@ -192,7 +196,7 @@ The main component. Supports single-date and range selection, an optional time p
 A self-contained time-of-day picker that can be used independently of `DatePicker` — as a popover-triggering input or rendered inline.
 
 ```tsx
-import { TimePicker } from 'flexy-date-picker';
+import { TimePicker } from '@daxence/flexy-date-picker';
 
 <TimePicker
   value={time}
@@ -230,7 +234,7 @@ import { TimePicker } from 'flexy-date-picker';
 A small presentational component for labeling calendar states (e.g. availability legends in booking UIs).
 
 ```tsx
-import { CalendarLegend } from 'flexy-date-picker';
+import { CalendarLegend } from '@daxence/flexy-date-picker';
 
 <CalendarLegend
   items={[

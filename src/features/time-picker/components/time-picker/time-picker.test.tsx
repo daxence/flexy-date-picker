@@ -43,6 +43,7 @@ describe('TimePicker', () => {
         timeStep={60}
         minTime="09:00"
         maxTime="11:00"
+        date={dayjs('2025-06-10')} // Tuesday
         disabledTime={{ weekdays: { 2: ['10:00'] } }}
       />,
     );

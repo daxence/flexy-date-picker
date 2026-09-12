@@ -9,9 +9,15 @@ permissions:
   contents: write
   issues: write
   pull-requests: write
+  id-token: write
+
+concurrency:
+  group: release-${{ github.workflow }}
+  cancel-in-progress: false
 
 jobs:
   release:
+    name: Build, verify & release
     runs-on: ubuntu-latest
 
     steps:
@@ -25,6 +31,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
         run: npm ci
@@ -32,8 +39,8 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-      - name: Run tests
-        run: npm run test
+      - name: Run tests with coverage
+        run: npm run test:coverage
 
       - name: Build library
         run: npm run build
@@ -42,3 +49,5 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_PKG_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
