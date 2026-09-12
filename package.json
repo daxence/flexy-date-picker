@@ -1,6 +1,6 @@
 {
   "name": "@daxence/flexy-date-picker",
-  "version": "1.3.3",
+  "version": "1.0.0",
   "description": "A fully customizable React date picker with single & range selection, injectable CSS theming, tooltips, and full event support.",
   "type": "module",
   "main": "./dist/flexy-date-picker.umd.cjs",

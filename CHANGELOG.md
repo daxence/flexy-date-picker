@@ -1,3 +1,12 @@
+# 1.0.0 (2026-09-12)
+
+
+### Bug Fixes
+
+* ci pipelines issue ([0bb89ff](https://github.com/daxence/flexy-date-picker/commit/0bb89ff5918bd57fd7acac9e03e2bad98b916c77))
+* ci pipelines issue ([9da96ad](https://github.com/daxence/flexy-date-picker/commit/9da96ad592b42ae8f2cff2384f57100545f5731c))
+* ci pipelines issue ([31ae99e](https://github.com/daxence/flexy-date-picker/commit/31ae99ee7a2a5b3bbc4cf185e306f331445097d6))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
