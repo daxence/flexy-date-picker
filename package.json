@@ -36,7 +36,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20.9.0"
   },
   "peerDependencies": {
     "dayjs": ">=1.11.0",
