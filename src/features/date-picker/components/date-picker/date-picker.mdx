@@ -1,0 +1,240 @@
+import { Meta, Canvas, Controls, ArgTypes, Story, Source } from '@storybook/addon-docs/blocks';
+import * as DatePickerStories from './date-picker.stories';
+
+<Meta of={DatePickerStories} />
+
+# DatePicker
+
+A fully customizable React date picker with single & range selection, time
+picking, CSS token theming, rich tooltips, slot overrides, and full event
+support. It ships zero-dependency beyond React and
+[dayjs](https://day.js.org/).
+
+---
+
+## Installation
+
+```bash
+npm install flexy-date-picker
+```
+
+Import the CSS once in your app entry file:
+
+```ts
+import 'flexy-date-picker/styles';
+```
+
+---
+
+## Quick start
+
+```tsx
+import { DatePicker } from 'flexy-date-picker';
+
+function App() {
+  return (
+    <DatePicker
+      placeholder="Select date"
+      onDateChange={(d) => console.log(d?.format('YYYY-MM-DD'))}
+    />
+  );
+}
+```
+
+<Canvas of={DatePickerStories.Default} />
+
+---
+
+## Interactive playground
+
+Every prop is wired to a live Control — use the panel below to experiment.
+
+<Canvas of={DatePickerStories.Playground} />
+<Controls of={DatePickerStories.Playground} />
+
+---
+
+## Selection modes
+
+### Single (default)
+
+Click any day to select a single date. `onDateChange` is called with a
+`dayjs` object (or `null` on clear).
+
+<Canvas of={DatePickerStories.Default} />
+
+### Range
+
+Set `mode="range"` to enable two-step selection: first click sets the
+**start** date, second click sets the **end** date.
+`onRangeChange` receives `{ start, end }`.
+
+<Canvas of={DatePickerStories.RangeSelection} />
+
+---
+
+## Inline calendar
+
+Use `inline` to embed the calendar directly without an input trigger.
+
+<Canvas of={DatePickerStories.Inline} />
+
+### Inline range with two panels
+
+<Canvas of={DatePickerStories.RangeInline} />
+
+---
+
+## Time picker
+
+Enable `enableTime` to add a scrollable time-slot list. Constrain the
+available slots with `minTime`, `maxTime`, and `timeStep`.
+
+<Canvas of={DatePickerStories.WithTime} />
+<Canvas of={DatePickerStories.InlineWithTime} />
+
+---
+
+## Disabled dates
+
+The `disabled` prop accepts:
+
+| Shape | Behaviour |
+|-------|-----------|
+| `true` | Disable every date |
+| `{ before }` | Disable dates before the given dayjs |
+| `{ after }` | Disable dates after the given dayjs |
+| `{ dates }` | Disable a specific list of dayjs values |
+| `{ predicate }` | Disable any date where the function returns `true` |
+
+All shapes can be combined in a single object.
+
+<Canvas of={DatePickerStories.DisabledDates} />
+<Canvas of={DatePickerStories.MinMaxDates} />
+
+---
+
+## Default values
+
+Use `defaultValue` (single) or `defaultRangeValue` (range) to pre-select
+dates in **uncontrolled** mode.
+
+<Canvas of={DatePickerStories.PreSelectedDate} />
+<Canvas of={DatePickerStories.PreSelectedRange} />
+
+---
+
+## Adjacent month days
+
+By default (`showAdjacentMonthDays: false`) the grid only shows days of the
+current month. Set it to `true` to fill the grid with greyed-out overflow
+days.
+
+<Canvas of={DatePickerStories.ShowAdjacentMonthDays} />
+
+---
+
+## Week start day
+
+<Canvas of={DatePickerStories.WeekStartsMonday} />
+
+---
+
+## Multiple months
+
+<Canvas of={DatePickerStories.MultiMonth} />
+
+---
+
+## States
+
+### Disabled picker
+
+<Canvas of={DatePickerStories.Disabled} />
+
+### Read-only
+
+<Canvas of={DatePickerStories.ReadOnly} />
+
+### No clear button
+
+<Canvas of={DatePickerStories.NoClear} />
+
+---
+
+## Tooltips
+
+Pass a `string`, `ReactNode`, or a **render function** to add tooltips to
+day cells. The function receives `{ date, isToday, isSelected, isDisabled,
+isRangeStart, isRangeEnd, isInRange }`.
+
+<Canvas of={DatePickerStories.WithTooltip} />
+<Canvas of={DatePickerStories.TooltipWithFunction} />
+
+---
+
+## Theming
+
+The `theme` prop accepts an object whose keys map directly to CSS custom
+properties. All tokens and their CSS variable names are listed in the
+**Theme tokens** section below.
+
+### Teal
+<Canvas of={DatePickerStories.ThemeTeal} />
+
+### Purple
+<Canvas of={DatePickerStories.ThemePurple} />
+
+### Rose
+<Canvas of={DatePickerStories.ThemeRose} />
+
+### Dark (amber)
+<Canvas of={DatePickerStories.ThemeDark} />
+
+#### Theme tokens reference
+
+| Prop key | CSS variable | Default |
+|---|---|---|
+| `primary` | `--fldp-primary` | `#0f766e` |
+| `primaryHover` | `--fldp-primary-hover` | `#115e59` |
+| `primaryForeground` | `--fldp-primary-foreground` | `#ffffff` |
+| `background` | `--fldp-background` | `#f8fafc` |
+| `surface` | `--fldp-surface` | `rgba(255,255,255,0.88)` |
+| `surfaceStrong` | `--fldp-surface-strong` | `rgba(255,255,255,0.98)` |
+| `foreground` | `--fldp-foreground` | `#0f172a` |
+| `muted` | `--fldp-muted` | `#e6fffb` |
+| `accentSoft` | `--fldp-accent-soft` | `rgba(15,118,110,0.12)` |
+| `mutedForeground` | `--fldp-muted-foreground` | `#64748b` |
+| `border` | `--fldp-border` | `rgba(148,163,184,0.28)` |
+| `inputBackground` | `--fldp-input-background` | `var(--fldp-surface)` |
+| `borderRadius` | `--fldp-border-radius` | `16px` |
+| `dayBorderRadius` | `--fldp-day-border-radius` | `14px` |
+| `shadow` | `--fldp-shadow` | _deep shadow_ |
+| `fontFamily` | `--fldp-font-family` | Inter, system-ui |
+| `fontSize` | `--fldp-font-size` | `14px` |
+| `todayColor` | `--fldp-today-color` | `#0f766e` |
+| `disabledOpacity` | `--fldp-disabled-opacity` | `0.38` |
+| `transitionDuration` | `--fldp-transition-duration` | `150ms` |
+| `zIndex` | `--fldp-z-index` | `9999` |
+
+---
+
+## Custom renderers
+
+### `renderDay`
+
+Replace the day cell content with any React tree.
+
+<Canvas of={DatePickerStories.CustomDayRenderer} />
+
+### `renderNavButton`
+
+Replace the prev/next navigation buttons.
+
+<Canvas of={DatePickerStories.CustomNavButtons} />
+
+---
+
+## Full prop reference
+
+<ArgTypes of={DatePickerStories} />

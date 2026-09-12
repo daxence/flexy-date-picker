@@ -1,0 +1,49 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# flexy-date-picker
+
+A fully customizable React date picker library — built with TypeScript, Vite,
+and dayjs.
+
+## Features at a glance
+
+| Feature | Details |
+|---|---|
+| **Single & range selection** | Pick one date or a start/end range |
+| **Inline or popover** | Embed the calendar or use the default input trigger |
+| **Time picker** | Scrollable time-slot panel with configurable step |
+| **CSS token theming** | Override any design token via `theme` prop or CSS variables |
+| **Slot overrides** | Fine-grained `classNames` / `styles` per UI slot |
+| **Custom renderers** | `renderDay`, `renderNavButton`, `renderInput` |
+| **Disabled rules** | Before/after bounds, date list, weekday predicate |
+| **Tooltips** | String, ReactNode, or context-aware render function |
+| **Multi-month** | Show `numberOfMonths` panels side by side |
+| **Accessible** | Keyboard navigation, ARIA labels, focus management |
+| **Controlled & uncontrolled** | Works with or without external state |
+
+## Package info
+
+```bash
+npm install flexy-date-picker
+```
+
+```tsx
+// 1. Import the styles once
+import 'flexy-date-picker/styles';
+
+// 2. Use the component
+import { DatePicker } from 'flexy-date-picker';
+
+<DatePicker onDateChange={(d) => console.log(d)} />
+```
+
+## Storybook structure
+
+| Section | What's inside |
+|---|---|
+| **Components / DatePicker** | All stories + live Controls for every prop |
+| **Components / DatePicker (docs)** | Full MDX documentation with examples |
+
+Navigate to **Components → DatePicker** to start exploring.
