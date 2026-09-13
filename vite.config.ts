@@ -54,6 +54,7 @@ export default defineConfig({
         'src/**/index.ts',
         'src/**/index.tsx',
         'src/features/**/types/**',
+        'src/styles.ts',
         'src/**/*.test.ts',
         'src/**/*.test.tsx',
         'src/**/*.stories.ts',
