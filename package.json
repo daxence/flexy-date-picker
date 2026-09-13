@@ -5,14 +5,17 @@
   "type": "module",
   "main": "./dist/flexy-date-picker.umd.cjs",
   "module": "./dist/flexy-date-picker.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/flexy-date-picker.js",
       "require": "./dist/flexy-date-picker.umd.cjs",
-      "types": "./dist/types/index.d.ts"
+      "types": "./dist/index.d.ts"
     },
-    "./styles": "./dist/style.css"
+    "./styles": {
+      "types": "./dist/styles.d.ts",
+      "default": "./dist/style.css"
+    }
   },
   "files": [
     "dist"
