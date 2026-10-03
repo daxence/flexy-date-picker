@@ -19,6 +19,7 @@ jobs:
   quality:
     name: Lint, test & build
     runs-on: ubuntu-latest
+    environment: owner-approved-actions
     timeout-minutes: 20
 
     strategy:
