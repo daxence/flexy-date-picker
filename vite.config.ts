@@ -28,6 +28,13 @@ export default defineConfig({
           'react/jsx-runtime': 'jsxRuntime',
           dayjs: 'dayjs',
         },
+        // Pin the extracted CSS file name: newer Vite versions derive it from
+        // `build.lib.fileName` (flexy-date-picker.css) instead of the historical
+        // `style.css`, which silently breaks the published "./styles" export map.
+        assetFileNames: (assetInfo) =>
+          assetInfo.names?.some((name) => name.endsWith('.css'))
+            ? 'style.css'
+            : 'assets/[name]-[hash][extname]',
       },
     },
     cssCodeSplit: false,
