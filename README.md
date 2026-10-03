@@ -86,6 +86,7 @@ function App() {
 ## Live examples
 
 - **Demo app** — run `npm run dev` for a playground covering every prop combination (booking calendars, day content injection, multilingual pickers, time schedules, custom themes, and more). Each demo section includes a "View code" toggle with the exact snippet used.
+- **Live demo** — https://tools-hub.work/tools/flexy-date-picker/
 - **Storybook** — run `npm run storybook` for isolated, documented stories per component (`DatePicker`, `TimePicker`, `CalendarLegend`), including controls for every prop.
 
 ---
