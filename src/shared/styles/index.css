@@ -218,15 +218,12 @@
   position: absolute;
   left: 0;
   z-index: var(--fldp-z-index);
-    /*
-  FIXME: check later
   background:
     radial-gradient(circle at top left, color-mix(in srgb, var(--fldp-primary) 10%, transparent), transparent 40%),
     linear-gradient(180deg, var(--fldp-surface-strong), var(--fldp-background));
   border: 1.5px solid var(--fldp-border);
   border-radius: var(--fldp-border-radius);
   box-shadow: var(--fldp-shadow);
-  */
   padding: 18px;
   display: flex;
   align-items: flex-start;
