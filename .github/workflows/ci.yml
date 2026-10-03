@@ -19,7 +19,6 @@ jobs:
   quality:
     name: Lint, test & build
     runs-on: ubuntu-latest
-    environment: owner-approved-actions
     timeout-minutes: 20
 
     strategy:
@@ -64,3 +63,13 @@ jobs:
           name: coverage-report
           path: coverage
           retention-days: 7
+
+  owner-approval-gate:
+    name: Owner approval gate
+    needs: quality
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: owner-approved-actions
+    steps:
+      - name: Protected gate approved
+        run: echo "Protected environment approval satisfied after CI checks."
