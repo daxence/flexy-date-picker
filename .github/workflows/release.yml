@@ -38,6 +38,11 @@ jobs:
           ref: ${{ github.event.workflow_run.head_sha }}
           fetch-depth: 0
 
+      - name: Fetch git notes
+        # actions/checkout never fetches refs/notes/*, which makes semantic-release's
+        # notes push fail against GitHub as a rejected non-fast-forward update.
+        run: git fetch origin 'refs/notes/*:refs/notes/*' || true
+
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
